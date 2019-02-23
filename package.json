@@ -1,0 +1,21 @@
+{
+  "name": "vuepress-plugin-mathjax",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Shigma <1700011071@pku.edu.cn>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev src/docs",
+    "build": "vuepress build src/docs"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.0.0-alpha.39",
+    "@vuepress/plugin-medium-zoom": "^1.0.0-alpha.39",
+    "eslint": "^5.14.1",
+    "eslint-plugin-vue": "^5.2.2",
+    "vuepress": "^1.0.0-alpha.39"
+  },
+  "dependencies": {
+    "mathjax3": "^3.0.0-beta.3"
+  }
+}
