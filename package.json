@@ -1,7 +1,8 @@
 {
   "name": "vuepress-plugin-mathjax",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/lib",
+  "description": "A vuepress plugin which supports TeX syntax in markdown files.",
   "author": "Shigma <1700011071@pku.edu.cn>",
   "license": "MIT",
   "scripts": {
@@ -12,7 +13,6 @@
     "@vuepress/plugin-back-to-top": "^1.0.0-alpha.39",
     "@vuepress/plugin-medium-zoom": "^1.0.0-alpha.39",
     "eslint": "^5.14.1",
-    "eslint-plugin-vue": "^5.2.2",
     "vuepress": "^1.0.0-alpha.39"
   },
   "dependencies": {

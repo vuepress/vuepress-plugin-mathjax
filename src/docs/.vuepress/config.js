@@ -7,7 +7,7 @@ function resolve (...args) {
 module.exports = {
   base: '/vuepress-plugin-mathjax/',
   title: 'vuepress-plugin-mathjax',
-  description: 'A LaTeX plugin for VuePress',
+  description: 'A vuepress plugin which supports TeX syntax in markdown files',
   dest: resolve('../../docs'),
   plugins: {
     '@vuepress/medium-zoom': {},

@@ -1,3 +1,11 @@
 # vuepress-plugin-tex
 
-A vuepress plugin which provides support for TeX syntax in markdown files.
+A vuepress plugin which supports TeX syntax in markdown files.
+
+[Home page](https://shigma.github.io/vuepress-plugin-mathjax/)
+
+```bash
+npm i vuepress-plugin-mathjax
+# OR
+yarn add vuepress-plugin-mathjax
+```

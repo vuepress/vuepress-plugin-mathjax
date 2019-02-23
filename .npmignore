@@ -1,2 +1,4 @@
 docs
 .vscode
+.eslintignore
+.eslintrc.yml
