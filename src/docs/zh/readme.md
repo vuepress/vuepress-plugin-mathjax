@@ -1,8 +1,8 @@
 ---
 home: true
-title: Home
-actionText: Get Started →
-actionLink: /guide/
+title: 主页
+actionText: 开始使用 →
+actionLink: /zh/guide/
 ---
 
 ## Input
