@@ -14,9 +14,12 @@ const defaultMacros = require('./defaultMacros')
 const escapedCharacters = '^$()[]{}*.?+\\|'
 
 function toEscapedString(source) {
-  return source.split('').map(char => {
+  const chars = source.trim().split('').map(char => {
     return escapedCharacters.includes(char) ? '\\' + char : char
-  }).join('') + '\\b'
+  })
+  const lastChar = chars[chars.length - 1]
+  if (lastChar.match(/\w/)) chars.push('\\b')
+  return chars.join('')
 }
 
 module.exports = (options, tempPath) => {

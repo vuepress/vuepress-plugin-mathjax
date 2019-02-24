@@ -12,16 +12,16 @@ sidebarDepth: 3
 ## packages
 
 - **类型**: `string | string[]`
-- **默认值**: all the packages available
+- **默认值**: 所有可以加载的 MathJax 包
 
-The packages to use.
+设置使用的 MathJax 包。
 
 ## macros
 
 - **类型**: `{ [key: string]: string | null }`
 - **默认值**: `{}`
 
-Macros will be automatically mixed with built-in macros. To disable a built-in macro, simply set the value to `null` accordingly. Here is a list of all built-in macros:
+输入的宏将与内置的宏进行混合。如果要取消一个内置的宏替换，可以将对应的值设为 `null`。下面是一张内置宏的列表：
 
 ```js
 export default {
@@ -39,12 +39,12 @@ export default {
   '-+': '\\mp',
   '==': '\\equiv',
   '!=': '\\ne',
-  '>=': '\\leq',
-  '<=': '\\geq',
+  '>=': '\\geq',
+  '<=': '\\leq',
   '<<': '\\ll',
   '>>': '\\gg',
-  '\\dd': '\\mathrm{d}',
-  '\\e': '\\mathrm{e}',
+  '\\md': '\\mathrm{d}',
+  '\\me': '\\mathrm{e}',
   '\\arccot': '\\operatorname{arccot}',
   '\\arcsec': '\\operatorname{arcsec}',
   '\\arccsc': '\\operatorname{arccsc}',

@@ -1,6 +1,6 @@
 # 介绍
 
-## Usage
+## 用法
 
 ```bash
 npm i vuepress-plugin-mathjax
