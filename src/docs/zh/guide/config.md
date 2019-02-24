@@ -9,6 +9,8 @@ sidebarDepth: 3
 - **类型**: `'svg' | 'chtml'`
 - **默认值**: `'chtml'`
 
+MathJax 的输出格式。
+
 ## packages
 
 - **类型**: `string | string[]`
@@ -23,33 +25,7 @@ sidebarDepth: 3
 
 输入的宏将与内置的宏进行混合。如果要取消一个内置的宏替换，可以将对应的值设为 `null`。下面是一张内置宏的列表：
 
-```js
-export default {
-  // Arrow
-  '|->': '\\mapsto',
-  '<->': '\\leftrightarrow',
-  '<=>': '\\Leftrightarrow',
-  '==>': '\\Longrightarrow',
-  '->': '\\rightarrow',
-  '=>': '\\Rightarrow',
-  // Dots
-  '...': '\\cdots',
-  // Arithmatic
-  '+-': '\\pm',
-  '-+': '\\mp',
-  '==': '\\equiv',
-  '!=': '\\ne',
-  '>=': '\\geq',
-  '<=': '\\leq',
-  '<<': '\\ll',
-  '>>': '\\gg',
-  '\\md': '\\mathrm{d}',
-  '\\me': '\\mathrm{e}',
-  '\\arccot': '\\operatorname{arccot}',
-  '\\arcsec': '\\operatorname{arcsec}',
-  '\\arccsc': '\\operatorname{arccsc}',
-}
-```
+<<< @/src/lib/defaultMacros.js
 
 ## showError
 

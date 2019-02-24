@@ -66,7 +66,7 @@ module.exports = (options, tempPath) => {
   return {
     style: adaptor.textContent(OutputJax.styleSheet(html)),
     render (source, display) {
-      source = source.replace(macroRegex, matched => macros[matched])
+      source = source.replace(macroRegex, matched => macros[matched] + ' ')
       const math = new html.options.MathItem(source, InputJax, display)
       math.setMetrics(em, ex, width, 100000, 1)
       math.compile(html)

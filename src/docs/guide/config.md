@@ -9,12 +9,14 @@ sidebarDepth: 3
 - **type**: `'svg' | 'chtml'`
 - **default**: `'chtml'`
 
+The output of MathJax.
+
 ## packages
 
 - **type**: `string | string[]`
-- **default**: all the packages available
+- **default**: all the MathJax packages available
 
-The packages to use.
+The MathJax packages to use.
 
 ## macros
 
@@ -23,33 +25,7 @@ The packages to use.
 
 Macros will be automatically mixed with built-in macros. To disable a built-in macro, simply set the value to `null` accordingly. Here is a list of all built-in macros:
 
-```js
-export default {
-  // Arrow
-  '|->': '\\mapsto',
-  '<->': '\\leftrightarrow',
-  '<=>': '\\Leftrightarrow',
-  '==>': '\\Longrightarrow',
-  '->': '\\rightarrow',
-  '=>': '\\Rightarrow',
-  // Dots
-  '...': '\\cdots',
-  // Arithmatic
-  '+-': '\\pm',
-  '-+': '\\mp',
-  '==': '\\equiv',
-  '!=': '\\ne',
-  '>=': '\\geq',
-  '<=': '\\leq',
-  '<<': '\\ll',
-  '>>': '\\gg',
-  '\\md': '\\mathrm{d}',
-  '\\me': '\\mathrm{e}',
-  '\\arccot': '\\operatorname{arccot}',
-  '\\arcsec': '\\operatorname{arcsec}',
-  '\\arccsc': '\\operatorname{arccsc}',
-}
-```
+<<< @/src/lib/defaultMacros.js
 
 ## showError
 
