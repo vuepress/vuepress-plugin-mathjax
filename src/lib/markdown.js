@@ -2,8 +2,12 @@
 
 function isCloseable(state, pos) {
   const prevChar = pos > 0 ? state.src.charCodeAt(pos - 1) : -1
-  const nextChar = pos + 1 <= state.posMax ? state.src.charCodeAt(pos + 1) : -1
-
+  
+  // Fix issue #1. 
+  // state.posMax means the total string length, not the max index in the string.(weird)
+  // The previous implementation led to NaN comparison.
+  const nextChar = state.src.charCodeAt(pos + 1) || -1
+  
   return (
     prevChar !== 0x20 /* " " */ &&
     prevChar !== 0x09 /* "\t" */ &&
@@ -15,7 +19,7 @@ function isCloseable(state, pos) {
 }
 
 function isOpenable(state, pos) {
-  const nextChar = pos + 1 <= state.posMax ? state.src.charCodeAt(pos + 1) : -1
+  const nextChar = state.src.charCodeAt(pos + 1) || -1
 
   return (
     nextChar !== 0x20 /* " " */ &&
