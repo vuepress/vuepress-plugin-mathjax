@@ -17,8 +17,7 @@ module.exports = {
   '<=': '\\leqslant',
   '<<': '\\ll',
   '>>': '\\gg',
-  '\\md': '\\mathrm{d}',
-  '\\me': '\\mathrm{e}',
+  // Functions
   '\\arccot': '\\operatorname{arccot}',
   '\\arcsec': '\\operatorname{arcsec}',
   '\\arccsc': '\\operatorname{arccsc}',

@@ -13,11 +13,15 @@ module.exports = {
   base: '/vuepress-plugin-mathjax/',
   dest: resolve('../../docs'),
 
-  plugins: {
-    '@vuepress/medium-zoom': {},
-    '@vuepress/back-to-top': {},
-    [resolve('../lib')]: {},
-  },
+  plugins: [
+    '@vuepress/medium-zoom',
+    '@vuepress/back-to-top',
+    [resolve('../lib'), {
+      macros: {
+        '\\Z': '\\mathbb{Z}'
+      }
+    }],
+  ],
 
   locales: {
     '/': {

@@ -1,38 +1,37 @@
 // based on https://github.com/waylonflinn/markdown-it-katex
 
-// Test if potential opening or closing delimieter
-// Assumes that there is a '$' at state.src[pos]
-function isValidDelim(state, pos) {
+function isCloseable(state, pos) {
   const prevChar = pos > 0 ? state.src.charCodeAt(pos - 1) : -1
   const nextChar = pos + 1 <= state.posMax ? state.src.charCodeAt(pos + 1) : -1
 
-  // Check non-whitespace conditions for opening and closing, and
-  // check that closing delimeter isn't followed by a number
-  const can_close = 
+  return (
     prevChar !== 0x20 /* " " */ &&
     prevChar !== 0x09 /* "\t" */ &&
     (
       nextChar < 0x30 /* "0" */ ||
       nextChar > 0x39 /* "9" */
     )
+  )
+}
 
-  const can_open = 
+function isOpenable(state, pos) {
+  const nextChar = pos + 1 <= state.posMax ? state.src.charCodeAt(pos + 1) : -1
+
+  return (
     nextChar !== 0x20 /* " " */ &&
     nextChar !== 0x09 /* "\t" */
-
-  return { can_open, can_close }
+  )
 }
 
 function math_inline(state, silent) {
-  let match, token, res, pos
+  let match, token, pos
 
   if (state.src[state.pos] !== '$') {
     return false
   }
 
-  res = isValidDelim(state, state.pos)
-  if (!res.can_open) {
-    if (!silent) { state.pending += '$'; }
+  if (!isOpenable(state, state.pos)) {
+    if (!silent) state.pending += '$'
     state.pos += 1
     return true
   }
@@ -69,8 +68,7 @@ function math_inline(state, silent) {
   }
 
   // Check for valid closing delimiter
-  res = isValidDelim(state, match)
-  if (!res.can_close) {
+  if (!isCloseable(state, match)) {
     if (!silent) state.pending += '$'
     state.pos = start
     return true
@@ -137,6 +135,15 @@ function math_block (state, start, end, silent) {
   return true
 }
 
+function escapeHtml(unsafe) {
+  return unsafe
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
 module.exports = (md, options) => {
   const { render, config } = options
 
@@ -145,23 +152,21 @@ module.exports = (md, options) => {
     alt: [ 'paragraph', 'reference', 'blockquote', 'list' ]
   })
 
-  md.renderer.rules.math_inline = (tokens, index) => {
-    const { content } = tokens[index]
-    try {
-      return render(content, false)
-    } catch (error) {
-      if (config.showError) console.log(error)
-      return content
+  function getMathRenderer (display, wrapper) {
+    return (tokens, index, options, env) => {
+      const { content } = tokens[index]
+      try {
+        const { mathjax = {} } = env.frontmatter || {}
+        return wrapper(render(content, display, mathjax.presets))
+      } catch (error) {
+        if (config.showError && env.loader) {
+          env.loader.emitError(error)
+        }
+        return wrapper(escapeHtml(content))
+      }
     }
   }
 
-  md.renderer.rules.math_block = (tokens, index) => {
-    const { content } = tokens[index]
-    try{
-      return '<p>' + render(content, true) + '</p>\n'
-    } catch (error) {
-      if (config.showError) console.log(error)
-      return content + '\n'
-    }
-  }
+  md.renderer.rules.math_inline = getMathRenderer(false, content => content)
+  md.renderer.rules.math_block = getMathRenderer(true, content => `<p>${content}</p>`)
 }

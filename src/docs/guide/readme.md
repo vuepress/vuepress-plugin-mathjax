@@ -1,5 +1,7 @@
 ---
 sidebarDepth: 3
+mathjax:
+  presets: \def\lr#1#2#3{\left#1#2\right#3}
 ---
 
 # Introduction
@@ -25,24 +27,28 @@ yarn add vuepress-plugin-mathjax
 ### Add to `config.js`
 
 ```js
-plugins: [
-  ['mathjax', {
-    target: 'svg',
-    macros: {
-      '*': '\\times ',
-    },
-  }],
-]
+module.exports = {
+  plugins: [
+    ['mathjax', {
+      target: 'svg',
+      macros: {
+        '*': '\\times',
+      },
+    }],
+  ]
+}
 ```
 or
 ```js
-plugins: {
-  mathjax: {
-    target: 'chtml',
-    macros: {
-      '\\mz': '\\mathbb{Z} ',
+module.exports = {
+  plugins: {
+    mathjax: {
+      target: 'chtml',
+      presets: [
+        '\\def\\lr#1#2#3{\\left#1#2\\right#3}',
+      ],
     },
-  },
+  }
 }
 ```
 
@@ -93,6 +99,62 @@ $$\frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right
 Math parsing in markdown is designed to agree with the conventions set by pandoc:
 
 > Anything between two $ characters will be treated as TeX math. The opening $ must have a non-space character immediately to its right, while the closing $ must have a non-space character immediately to its left, and must not be followed immediately by a digit. Thus, $20,000 and $30,000 won’t parse as math. If for some reason you need to enclose text in literal $ characters, backslash-escape them and they won’t be treated as math delimiters.
+
+## Features
+
+### Using Macros
+
+This is part of `config.js` of this project:
+
+```js
+module.exports = {
+  plugins: {
+    mathjax: {
+      macros: {
+        '\\Z': '\\mathbb{Z}'
+      }
+    }
+  }
+}
+```
+
+**Input:**
+
+<pre class="math-block">
+We have $a>n <=> a>=n+1$, if $a, n\in\Z$.
+</pre>
+
+**Output:**
+
+<div class="math-block">
+
+We have $a>n <=> a>=n+1$, if $a, n\in\Z$
+
+</div>
+
+### Using Presets <Badge text="1.1.0+"/> <Badge text="vuepress 1.0.0-alpha.39+"/>
+
+This is the frontmatter of this page:
+
+```yaml
+sidebarDepth: 3
+mathjax:
+  presets: \def\lr#1#2#3{\left#1#2\right#3}
+```
+
+**Input:**
+
+<pre class="math-block">
+$$\lr[{ \lr({ a^{b^c} }) }]$$
+</pre>
+
+**Output:**
+
+<div class="math-block">
+
+$$\lr[{ \lr({ a^{b^c} }) }]$$
+
+</div>
 
 ## See Also
 

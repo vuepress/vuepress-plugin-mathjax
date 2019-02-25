@@ -22,6 +22,16 @@ function toEscapedString(source) {
   return chars.join('')
 }
 
+function ensureArray(option) {
+  if (!option) {
+    return []
+  } else if (Array.isArray(option)) {
+    return option
+  } else {
+    return [option]
+  }
+}
+
 module.exports = (options, tempPath) => {
   let {
     em = 16,
@@ -36,6 +46,8 @@ module.exports = (options, tempPath) => {
   }
 
   const macros = Object.assign({}, defaultMacros, options.macros)
+  const globalPresets = ensureArray(options.presets)
+
   for (const key in macros) {
     if (typeof macros[key] !== 'string') {
       delete macros[key]
@@ -65,7 +77,8 @@ module.exports = (options, tempPath) => {
 
   return {
     style: adaptor.textContent(OutputJax.styleSheet(html)),
-    render (source, display) {
+    render (source, display, presets) {
+      source = globalPresets.concat(ensureArray(presets)).join('') + source
       source = source.replace(macroRegex, matched => macros[matched] + ' ')
       const math = new html.options.MathItem(source, InputJax, display)
       math.setMetrics(em, ex, width, 100000, 1)
