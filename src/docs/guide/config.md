@@ -4,6 +4,15 @@ sidebarDepth: 3
 
 # Configurations
 
+Configurations marked with <Badge vertical text="frontmatter"/> will be allowed to be written in the `mathjax` option of the frontmatter of the page in VuePress 1.0.0-alpha.39 and higher. E.g:
+
+```yaml
+---
+mathjax:
+  presets: '\def\lr#1#2#3{\left#1#2\right#3}'
+---
+```
+
 ## target
 
 - **type**: `'svg' | 'chtml'`
@@ -27,7 +36,16 @@ Macros will be automatically mixed with built-in macros. To disable a built-in m
 
 <<< @/src/lib/defaultMacros.js
 
-## showError
+## presets <Badge text="frontmatter"/>
+
+- **type**: `string | string[]`
+- **default**: `[]`
+
+The preset content to be added. The preset content will automatically be inserted before the TeX code.
+
+## showError <Badge text="vuepress 1.0.0-alpha.40+"/>
 
 - **type**: `boolean`
 - **default**: `false`
+
+Whether to output an error message in the console when a compilation error is encountered.

@@ -4,6 +4,15 @@ sidebarDepth: 3
 
 # 配置
 
+标有 <Badge vertical text="frontmatter"/>记号的配置在 VuePress 1.0.0-alpha.39 以上的版本中将允许写在页面的 frontmatter 的 `mathjax` 选项中。例如：
+
+```yaml
+---
+mathjax:
+  presets: '\def\lr#1#2#3{\left#1#2\right#3}'
+---
+```
+
 ## target
 
 - **类型**: `'svg' | 'chtml'`
@@ -27,7 +36,16 @@ MathJax 的输出格式。
 
 <<< @/src/lib/defaultMacros.js
 
-## showError
+## presets <Badge text="frontmatter"/>
+
+- **类型**: `string | string[]`
+- **默认值**: `[]`
+
+要添加的预设内容。预设内容会自动插入到要编译的 TeX 代码前。
+
+## showError <Badge text="vuepress 1.0.0-alpha.40+"/>
 
 - **类型**: `boolean`
 - **默认值**: `false`
+
+当遇到编译错误时，是否要在控制台输出错误信息。

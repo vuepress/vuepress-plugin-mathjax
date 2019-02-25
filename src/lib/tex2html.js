@@ -14,7 +14,7 @@ const defaultMacros = require('./defaultMacros')
 const escapedCharacters = '^$()[]{}*.?+\\|'
 
 function toEscapedString(source) {
-  const chars = source.trim().split('').map(char => {
+  const chars = source.split('').map(char => {
     return escapedCharacters.includes(char) ? '\\' + char : char
   })
   const lastChar = chars[chars.length - 1]

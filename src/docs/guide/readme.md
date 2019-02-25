@@ -52,7 +52,7 @@ module.exports = {
 }
 ```
 
-See detailed config [here](./config.md).
+See detailed configurations [here](./config.md).
 
 ## Syntax
 
@@ -132,14 +132,16 @@ We have $a>n <=> a>=n+1$, if $a, n\in\Z$
 
 </div>
 
-### Using Presets <Badge text="1.1.0+"/> <Badge text="vuepress 1.0.0-alpha.39+"/>
+### Using Presets <Badge text="vuepress 1.0.0-alpha.39+"/>
 
 This is the frontmatter of this page:
 
 ```yaml
+---
 sidebarDepth: 3
 mathjax:
-  presets: \def\lr#1#2#3{\left#1#2\right#3}
+  presets: '\def\lr#1#2#3{\left#1#2\right#3}'
+---
 ```
 
 **Input:**
@@ -156,10 +158,17 @@ $$\lr[{ \lr({ a^{b^c} }) }]$$
 
 </div>
 
-## See Also
+## Miscellaneous
+
+### Dependencies
+
+This plugin uses [mathjax-v3](https://github.com/mathjax/mathjax-v3) (Early beta) which is not ready for production.
+
+### Related Libraries
 
 This plugin is inspired by some other libraries, thank you!
 
+- [vuepress-plugin-latex](https://github.com/zlliang/vuepress-plugin-latex)
 - [markdown-it-katex](https://github.com/waylonflinn/markdown-it-katex)
 - [markdown-it-texmath](https://github.com/goessner/markdown-it-texmath)
 - [markdown-it-mathjax-chtml](https://github.com/yamavol/markdown-it-mathjax-chtml)

@@ -130,14 +130,16 @@ module.exports = {
 
 </div>
 
-### 使用预设 <Badge text="1.1.0+"/> <Badge text="vuepress 1.0.0-alpha.39+"/>
+### 使用预设 <Badge text="vuepress 1.0.0-alpha.39+"/>
 
 这是这个页面的 frontmatter:
 
 ```yaml
+---
 sidebarDepth: 3
 mathjax:
-  presets: \def\lr#1#2#3{\left#1#2\right#3}
+  presets: '\def\lr#1#2#3{\left#1#2\right#3}'
+---
 ```
 
 **输入:**
@@ -154,10 +156,17 @@ $$\lr[{ \lr({ a^{b^c} }) }]$$
 
 </div>
 
-## 相关库
+## 其他
+
+### 依赖
+
+这个插件目前使用 [mathjax-v3](https://github.com/mathjax/mathjax-v3)（早期测试版），因此可能不适合生产环境。
+
+### 相关工具
 
 这个插件的部分灵感来自其他一些库，谢谢你们！
 
+- [vuepress-plugin-latex](https://github.com/zlliang/vuepress-plugin-latex)
 - [markdown-it-katex](https://github.com/waylonflinn/markdown-it-katex)
 - [markdown-it-texmath](https://github.com/goessner/markdown-it-texmath)
 - [markdown-it-mathjax-chtml](https://github.com/yamavol/markdown-it-mathjax-chtml)

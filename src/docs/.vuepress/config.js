@@ -7,6 +7,7 @@ function resolve (...args) {
 const guideSidebar = () => [
   '',
   'config.html',
+  'changelog.html',
 ]
 
 module.exports = {
