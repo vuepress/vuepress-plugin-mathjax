@@ -18,7 +18,7 @@ module.exports = (config = {}, ctx) => {
     },
     
     enhanceAppFiles: [
-      resolve(__dirname, 'enhance.js')
+      resolve(__dirname, 'enhanceApp.js')
     ],
   }
 }

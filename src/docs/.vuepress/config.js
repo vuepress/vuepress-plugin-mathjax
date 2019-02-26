@@ -17,7 +17,12 @@ module.exports = {
   plugins: [
     '@vuepress/medium-zoom',
     '@vuepress/back-to-top',
-    [resolve('../lib'), {
+    ['redirect', {
+      locales: {
+        storage: true,
+      },
+    }],
+    ['mathjax', {
       macros: {
         '\\Z': '\\mathbb{Z}'
       }
@@ -25,7 +30,7 @@ module.exports = {
   ],
 
   locales: {
-    '/': {
+    '/en/': {
       lang: 'en-US',
       title: 'vuepress-plugin-mathjax',
       description: 'A VuePress plugin which supports TeX syntax',
@@ -42,17 +47,17 @@ module.exports = {
     editLinks: true,
     docsDir: 'src/docs',
     locales: {
-      '/': {
+      '/en/': {
         label: 'English',
         selectText: 'Languages',
         editLinkText: 'Edit this page on GitHub',
         lastUpdated: 'Last Updated',
         nav: [
-          { text: 'Home', link: '/' },
-          { text: 'Guide', link: '/guide/' },
+          { text: 'Home', link: '/en/' },
+          { text: 'Guide', link: '/en/guide/' },
         ],
         sidebar: {
-          '/guide/': guideSidebar(),
+          '/en/guide/': guideSidebar(),
         },
       },
       '/zh/': {
