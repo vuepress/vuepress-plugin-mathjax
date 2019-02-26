@@ -12,11 +12,12 @@ const guideSidebar = () => [
 
 module.exports = {
   base: '/vuepress-plugin-mathjax/',
-  dest: resolve('../../docs'),
+  dest: 'docs',
 
   plugins: [
     '@vuepress/medium-zoom',
     '@vuepress/back-to-top',
+    ['@vuepress/nprogress', false],
     ['redirect', {
       locales: {
         storage: true,
