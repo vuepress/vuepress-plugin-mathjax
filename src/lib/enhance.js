@@ -1,4 +1,5 @@
 import '@temp/plugins-mathjax.css'
+import './index.styl'
 
 export default ({ Vue }) => {
   const { ignoredElements } = Vue.config

@@ -1,5 +1,9 @@
 # Change Log
 
+### v1.1.2
+
+- Prevent overflow when rendering long expressions.
+
 ### v1.1.1
 
 - Fixed an issue where the last TeX expression could not be rendered when a line ends with $ (#1).

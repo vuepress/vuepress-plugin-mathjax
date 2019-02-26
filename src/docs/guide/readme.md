@@ -128,7 +128,7 @@ We have $a>n <=> a>=n+1$, if $a, n\in\Z$.
 
 <div class="math-block">
 
-We have $a>n <=> a>=n+1$, if $a, n\in\Z$
+We have $a>n <=> a>=n+1$, if $a, n\in\Z$.
 
 </div>
 
@@ -147,14 +147,14 @@ mathjax:
 **Input:**
 
 <pre class="math-block">
-$$\lr[{ \lr({ a^{b^c} }) }]$$
+$$\frac\partial{\partial t} \lr({\frac{y^t}t})$$
 </pre>
 
 **Output:**
 
 <div class="math-block">
 
-$$\lr[{ \lr({ a^{b^c} }) }]$$
+$$\frac\partial{\partial t} \lr({\frac{y^t}t})$$
 
 </div>
 

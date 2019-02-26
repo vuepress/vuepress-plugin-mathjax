@@ -1,8 +1,11 @@
 # vuepress-plugin-mathjax
 
-A VuePress plugin which supports TeX syntax in markdown files.
+A [VuePress](https://vuepress.vuejs.org/) plugin which supports TeX syntax in markdown files.
 
-[Homepage](https://shigma.github.io/vuepress-plugin-mathjax/)
+- [Home Page](https://shigma.github.io/vuepress-plugin-mathjax/)
+- [Change Log](https://shigma.github.io/vuepress-plugin-mathjax/guide/changelog.html)
+
+## Usage
 
 ```bash
 npm i vuepress-plugin-mathjax
@@ -46,3 +49,7 @@ The preset content to be added. The preset content will automatically be inserte
 - **default**: `false`
 
 Whether to output an error message in the console when a compilation error is encountered.
+
+## Contribution
+
+Contribution Welcome!

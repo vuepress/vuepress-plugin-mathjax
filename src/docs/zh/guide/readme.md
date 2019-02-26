@@ -145,14 +145,14 @@ mathjax:
 **输入:**
 
 <pre class="math-block">
-$$\lr[{ \lr({ a^{b^c} }) }]$$
+$$\frac\partial{\partial t} \lr({\frac{y^t}t})$$
 </pre>
 
 **输出:**
 
 <div class="math-block">
 
-$$\lr[{ \lr({ a^{b^c} }) }]$$
+$$\frac\partial{\partial t} \lr({\frac{y^t}t})$$
 
 </div>
 
