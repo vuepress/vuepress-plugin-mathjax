@@ -94,7 +94,7 @@ $$\frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right
 
 ### 一些约定
 
-markdown 文件中的 TeX 语法将遵循 pandoc 制定的准则：
+markdown 文件中的 TeX 语法将遵循 [pandoc](http://pandoc.org/MANUAL.html#math) 制定的准则：
 
 > 两个 $ 之间的任何内容都将被视为 TeX 语法。开头的 $ 必须在其右边有一个非空格字符，而结尾的 $ 必须在其左边有一个非空格字符，并且不能立即跟随一个数字。因此 $20,000 和 $30,000 将不会解析为 TeX。如果由于某种原因你需要将文本置于 $ 字符中，则使用反斜杠转义它们即可。
 
@@ -169,4 +169,5 @@ $$\frac\partial{\partial t} \lr({\frac{y^t}t})$$
 - [vuepress-plugin-latex](https://github.com/zlliang/vuepress-plugin-latex)
 - [markdown-it-katex](https://github.com/waylonflinn/markdown-it-katex)
 - [markdown-it-texmath](https://github.com/goessner/markdown-it-texmath)
+- [markdown-it-mathjax](https://github.com/classeur/markdown-it-mathjax)
 - [markdown-it-mathjax-chtml](https://github.com/yamavol/markdown-it-mathjax-chtml)

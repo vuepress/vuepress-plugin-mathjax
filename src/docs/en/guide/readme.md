@@ -96,7 +96,7 @@ $$\frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right
 
 ### Conventions
 
-Math parsing in markdown is designed to agree with the conventions set by pandoc:
+Math parsing in markdown is designed to agree with the conventions set by [pandoc](http://pandoc.org/MANUAL.html#math):
 
 > Anything between two $ characters will be treated as TeX math. The opening $ must have a non-space character immediately to its right, while the closing $ must have a non-space character immediately to its left, and must not be followed immediately by a digit. Thus, $20,000 and $30,000 won’t parse as math. If for some reason you need to enclose text in literal $ characters, backslash-escape them and they won’t be treated as math delimiters.
 
@@ -171,4 +171,5 @@ This plugin is inspired by some other libraries, thank you!
 - [vuepress-plugin-latex](https://github.com/zlliang/vuepress-plugin-latex)
 - [markdown-it-katex](https://github.com/waylonflinn/markdown-it-katex)
 - [markdown-it-texmath](https://github.com/goessner/markdown-it-texmath)
+- [markdown-it-mathjax](https://github.com/classeur/markdown-it-mathjax)
 - [markdown-it-mathjax-chtml](https://github.com/yamavol/markdown-it-mathjax-chtml)

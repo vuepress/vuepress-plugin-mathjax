@@ -1,5 +1,9 @@
 # Change Log
 
+### v1.1.3
+
+- Support rendering mathjax blocks inline (#2).
+
 ### v1.1.2
 
 - Prevent overflow when rendering long expressions.
