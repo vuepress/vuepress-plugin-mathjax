@@ -1,5 +1,6 @@
 # vuepress-plugin-mathjax
 
+[![Build Status](https://travis-ci.org/Shigma/vuepress-plugin-mathjax.svg?branch=master)](https://travis-ci.org/Shigma/vuepress-plugin-mathjax)
 [![npm](https://img.shields.io/npm/v/vuepress-plugin-mathjax.svg)](https://www.npmjs.com/package/vuepress-plugin-mathjax)
 
 A [VuePress](https://vuepress.vuejs.org/) plugin which supports TeX syntax in markdown files.
@@ -52,7 +53,7 @@ The preset content to be added. The preset content will automatically be inserte
 
 Whether to output an error message in the console when a compilation error is encountered.
 
-## cache
+### cache
 
 - **type**: `false | object`
 - **default**: `{}`
