@@ -1,0 +1,19 @@
+language: node_js
+
+node_js:
+  - node
+
+env:
+  global:
+    secure: c3+LMVDNH9RhGiCepvSJA8WLPHPwKPy2Pm/Ng+naqkN0Uprg/Cq4cYVjXFBOjkBsRk3UG96iflLziHIIn4VmAWqe/ezdvmVDeexPUdYlg9P/TcE0KpLyIQxoEljbwF8Or+A1YyR+cu9oy19p2PWq0PJnQ1RzJ5xo4jP+N9cQg8T3bGmdNTJBhf//7wBoGZfLM6LWrd/74OJ8GL4YMRd533ep+nSoQHyxZGxdsdoyYquOTxRF0bRy9AO04uGMPMrEufDrSunFnC98qNfS/WyVxnr5+ApZ5ks1ZrWI9Duk3HBzllYdn2bbY4wOwoBDqhAMf2QRqh/+VjF0A68GouXvUYCyA2SL24D/1NqKvwZ+/WFg1aIW3rZb2lc/eVseTcVpcD0czK+f/9UsxJLbWqlRdvCSEMVxAXJJB8dTj/hV4+yxdMCYtNd36X/ZRdWaYesvmvP1DcmMw8kc8r//g9Xl0fQFEBCWZ3OhM3eSoshg9f7p8n8R7ekTpjhXEsVi0FyYoHO5tPQiu4/EPQrztJbfkVRWi1DB5FeJzjFieVA4S4l+iKmq4bDRQea8i8g+c3K22ENhRpPQ1XmzWai+f5iHMWnvK8NQxLWd6SsN/L014e9ugKJ15iik0m1OVXaHaSkSrEVor4KGbMJ+B9Lzf2Hxqeu619hVZDuTWlAowQkK2Mc=
+
+before_deploy:
+  - npm run build
+  
+deploy:
+  provider: pages
+  local-dir: docs/.vuepress/dist
+  skip-cleanup: true
+  keep-history: true
+  on:
+    branch: master
