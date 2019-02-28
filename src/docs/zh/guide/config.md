@@ -49,3 +49,10 @@ MathJax 的输出格式。
 - **默认值**: `false`
 
 当遇到编译错误时，是否要在控制台输出错误信息。
+
+## cache
+
+- **type**: `false | object`
+- **default**: `{}`
+
+[LRU Cache](https://github.com/isaacs/node-lru-cache) 选项。如果设为 `false`，将不会使用缓存。

@@ -1,5 +1,6 @@
-const path = require('path')
 const url = require('url')
+const path = require('path')
+const LruCache = require('lru-cache')
 
 const { TeX } = require('mathjax3/mathjax3/input/tex')
 const { SVG } = require('mathjax3/mathjax3/output/svg')
@@ -41,6 +42,11 @@ module.exports = (options, tempPath) => {
     target = '',
   } = options
 
+  let cache
+  if (options.cache !== false) {
+    cache = new LruCache({ ...options.cache })
+  }
+
   if (typeof packages === 'string') {
     packages = packages.split(/\s*,\s*/)
   }
@@ -80,11 +86,21 @@ module.exports = (options, tempPath) => {
     render (source, display, presets) {
       source = globalPresets.concat(ensureArray(presets)).join('') + source
       source = source.replace(macroRegex, matched => macros[matched] + ' ')
+
+      if (cache) {
+        const output = cache.get(source)
+        if (typeof output === 'string') return output
+      }
+
       const math = new html.options.MathItem(source, InputJax, display)
       math.setMetrics(em, ex, width, 100000, 1)
       math.compile(html)
       math.typeset(html)
-      return adaptor.outerHTML(math.typesetRoot)
+      const output = adaptor.outerHTML(math.typesetRoot)
+
+      if (cache) cache.set(source, output)
+
+      return output
     }
   }
 }

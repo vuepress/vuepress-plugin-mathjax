@@ -1,5 +1,9 @@
 # Change Log
 
+### v1.2.0
+
+- Support LRU caching.
+
 ### v1.1.3
 
 - Support rendering mathjax blocks inline (#2).

@@ -49,3 +49,10 @@ The preset content to be added. The preset content will automatically be inserte
 - **default**: `false`
 
 Whether to output an error message in the console when a compilation error is encountered.
+
+## cache
+
+- **type**: `false | object`
+- **default**: `{}`
+
+[LRU Cache](https://github.com/isaacs/node-lru-cache) Options. If set to `false`, no cache will be used.

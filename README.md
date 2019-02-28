@@ -1,5 +1,7 @@
 # vuepress-plugin-mathjax
 
+[![npm](https://img.shields.io/npm/v/vuepress-plugin-mathjax.svg)](https://www.npmjs.com/package/vuepress-plugin-mathjax)
+
 A [VuePress](https://vuepress.vuejs.org/) plugin which supports TeX syntax in markdown files.
 
 - [Home Page](https://shigma.github.io/vuepress-plugin-mathjax/)
@@ -49,6 +51,13 @@ The preset content to be added. The preset content will automatically be inserte
 - **default**: `false`
 
 Whether to output an error message in the console when a compilation error is encountered.
+
+## cache
+
+- **type**: `false | object`
+- **default**: `{}`
+
+[LRU Cache](https://github.com/isaacs/node-lru-cache) Options. If set to `false`, no cache will be used.
 
 ## Contribution
 
