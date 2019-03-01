@@ -10,15 +10,13 @@ module.exports = (config = {}, ctx) => {
       await ctx.writeTemp('plugins-mathjax.css', style)
     },
 
-    extendMarkdown: md => {
+    extendMarkdown(md) {
       md.use(mathJaxPlugin, {
         render,
         config,
       })
     },
     
-    enhanceAppFiles: [
-      resolve(__dirname, 'enhanceApp.js')
-    ],
+    enhanceAppFiles: resolve(__dirname, 'enhanceApp.js'),
   }
 }

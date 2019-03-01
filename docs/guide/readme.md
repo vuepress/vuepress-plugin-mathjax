@@ -11,7 +11,7 @@ mathjax:
 ### Global Installation
 
 ```bash
-npm i -g vuepress-plugin-mathjax
+npm install -g vuepress-plugin-mathjax
 # OR
 yarn global add vuepress-plugin-mathjax
 ```
@@ -19,7 +19,7 @@ yarn global add vuepress-plugin-mathjax
 ### Local Installation
 
 ```bash
-npm i vuepress-plugin-mathjax
+npm install vuepress-plugin-mathjax
 # OR
 yarn add vuepress-plugin-mathjax
 ```

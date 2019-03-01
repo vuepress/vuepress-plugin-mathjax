@@ -9,7 +9,7 @@ mathjax:
 ### 全局安装
 
 ```bash
-npm i -g vuepress-plugin-mathjax
+npm install -g vuepress-plugin-mathjax
 # 或者
 yarn global add vuepress-plugin-mathjax
 ```
@@ -17,7 +17,7 @@ yarn global add vuepress-plugin-mathjax
 ### 局部安装
 
 ```bash
-npm i vuepress-plugin-mathjax
+npm install vuepress-plugin-mathjax
 # 或者
 yarn add vuepress-plugin-mathjax
 ```
