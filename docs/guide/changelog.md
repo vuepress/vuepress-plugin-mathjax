@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.2.1
+
+- Support mergeable options.
+
 ## v1.2.0
 
 - Support LRU caching.

@@ -10,8 +10,6 @@ const { liteAdaptor } = require('mathjax3/mathjax3/adaptors/liteAdaptor')
 const { LiteDocument } = require('mathjax3/mathjax3/adaptors/lite/Document')
 const { AllPackages } = require('mathjax3/mathjax3/input/tex/AllPackages')
 
-const defaultMacros = require('./defaultMacros')
-
 const escapedCharacters = '^$()[]{}*.?+\\|'
 
 function toEscapedString(source) {
@@ -51,8 +49,7 @@ module.exports = (options, tempPath) => {
     packages = packages.split(/\s*,\s*/)
   }
 
-  const macros = Object.assign({}, defaultMacros, options.macros)
-  const globalPresets = ensureArray(options.presets)
+  const { macros, presets } = options
 
   for (const key in macros) {
     if (typeof macros[key] !== 'string') {
@@ -83,8 +80,8 @@ module.exports = (options, tempPath) => {
 
   return {
     style: adaptor.textContent(OutputJax.styleSheet(html)),
-    render (source, display, presets) {
-      source = globalPresets.concat(ensureArray(presets)).join('') + source
+    render (source, display, localPresets) {
+      source = presets.concat(ensureArray(localPresets)).join('') + source
       source = source.replace(macroRegex, matched => macros[matched] + ' ')
 
       if (cache) {

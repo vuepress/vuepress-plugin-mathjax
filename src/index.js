@@ -1,13 +1,14 @@
 const { resolve } = require('path')
 const tex2html = require('./tex2html')
 const mathJaxPlugin = require('./markdown')
+const mergeable = require('vuepress-mergeable')
 
-module.exports = (config = {}, ctx) => {
-  const { style, render } = tex2html(config, ctx.tempPath)
+module.exports = mergeable((config, context) => {
+  const { style, render } = tex2html(config, context.tempPath)
 
   return {
     async ready() {
-      await ctx.writeTemp('plugins-mathjax.css', style)
+      await context.writeTemp('plugins-mathjax.css', style)
     },
 
     extendMarkdown(md) {
@@ -19,4 +20,9 @@ module.exports = (config = {}, ctx) => {
     
     enhanceAppFiles: resolve(__dirname, 'enhanceApp.js'),
   }
-}
+}, {
+  macros: 'assign',
+  presets: 'flat',
+}, {
+  macros: require('./defaultMacros'),
+})
