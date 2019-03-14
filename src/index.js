@@ -1,6 +1,7 @@
 const { resolve } = require('path')
 const tex2html = require('./tex2html')
 const mathJaxPlugin = require('./markdown')
+const defaultMacros = require('./defaultMacros')
 const mergeable = require('vuepress-mergeable')
 
 module.exports = mergeable((config, context) => {
@@ -24,5 +25,5 @@ module.exports = mergeable((config, context) => {
   macros: 'assign',
   presets: 'flat',
 }, {
-  macros: require('./defaultMacros'),
+  macros: defaultMacros,
 })

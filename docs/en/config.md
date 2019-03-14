@@ -1,62 +1,58 @@
-# [vuepress-plugin-mathjax](https://vuepress-contrib.github.io/vuepress-plugin-mathjax/)
+---
+sidebarDepth: 3
+---
 
-[![Build Status](https://travis-ci.org/vuepress-contrib/vuepress-plugin-mathjax.svg?branch=master)](https://travis-ci.org/vuepress-contrib/vuepress-plugin-mathjax)
-[![npm](https://img.shields.io/npm/v/vuepress-plugin-mathjax.svg)](https://www.npmjs.com/package/vuepress-plugin-mathjax)
+# Configurations
 
-A [VuePress](https://vuepress.vuejs.org/) plugin which supports TeX syntax in markdown files.
+Configurations marked with <Badge vertical text="frontmatter"/> will be allowed to be written in the `mathjax` option of the frontmatter of the page in VuePress 1.0.0-alpha.39 and higher. E.g:
 
-## Usage
-
-```bash
-npm i vuepress-plugin-mathjax
-# OR
-yarn add vuepress-plugin-mathjax
+```yaml
+---
+mathjax:
+  presets: '\def\lr#1#2#3{\left#1#2\right#3}'
+---
 ```
 
-## Configurations
-
-### target
+## target
 
 - **type**: `'svg' | 'chtml'`
 - **default**: `'chtml'`
 
 The output of MathJax.
 
-### packages
+## packages
 
 - **type**: `string | string[]`
 - **default**: all the MathJax packages available
 
 The MathJax packages to use.
 
-### macros
+## macros
 
 - **type**: `{ [key: string]: string | null }`
 - **default**: `{}`
 
 Macros will be automatically mixed with built-in macros. To disable a built-in macro, simply set the value to `null` accordingly. Here is a list of all built-in macros:
 
-### presets
+<<< @/src/defaultMacros.js
+
+## presets <Badge text="frontmatter"/>
 
 - **type**: `string | string[]`
 - **default**: `[]`
 
 The preset content to be added. The preset content will automatically be inserted before the TeX code.
 
-### showError
+## showError <Badge text="vuepress 1.0.0-alpha.40+"/>
 
 - **type**: `boolean`
 - **default**: `false`
 
 Whether to output an error message in the console when a compilation error is encountered.
 
-### cache
+## cache
 
 - **type**: `false | object`
 - **default**: `{}`
 
 [LRU Cache](https://github.com/isaacs/node-lru-cache) Options. If set to `false`, no cache will be used.
-
-## Contribution
-
-Contribution Welcome!
