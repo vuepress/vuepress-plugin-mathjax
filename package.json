@@ -14,10 +14,13 @@
     "type": "git",
     "url": "https://github.com/vuepress-contrib/vuepress-plugin-mathjax.git"
   },
+  "bugs": {
+    "url": "https://github.com/vuepress-contrib/vuepress-plugin-mathjax/issues"
+  },
+  "homepage": "https://vuepress-contrib.github.io/vuepress-plugin-mathjax",
   "devDependencies": {
     "vuepress": "^1.0.0-alpha.44",
-    "vuepress-plugin-mathjax": "^1.2.0",
-    "vuepress-theme-contrib": "^1.0.0-alpha.0"
+    "vuepress-theme-contrib": "^1.0.0-alpha.2"
   },
   "dependencies": {
     "lru-cache": "^5.1.1",

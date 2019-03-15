@@ -8,6 +8,8 @@ module.exports = mergeable((config, context) => {
   const { style, render } = tex2html(config, context.tempPath)
 
   return {
+    name: 'vuepress-plugin-mathjax',
+
     async ready() {
       await context.writeTemp('plugins-mathjax.css', style)
     },
