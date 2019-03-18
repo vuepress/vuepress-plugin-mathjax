@@ -1,6 +1,5 @@
-# [vuepress-plugin-mathjax](https://vuepress-contrib.github.io/vuepress-plugin-mathjax/)
+# [vuepress-plugin-mathjax](https://vuepress.github.io/plugins/mathjax.html)
 
-[![Build Status](https://travis-ci.org/vuepress-contrib/vuepress-plugin-mathjax.svg?branch=master)](https://travis-ci.org/vuepress-contrib/vuepress-plugin-mathjax)
 [![npm](https://img.shields.io/npm/v/vuepress-plugin-mathjax.svg)](https://www.npmjs.com/package/vuepress-plugin-mathjax)
 
 A [VuePress](https://vuepress.vuejs.org/) plugin which supports TeX syntax in markdown files.
