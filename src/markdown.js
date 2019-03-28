@@ -4,8 +4,8 @@
 
 const { escapeHtml } = require('@vuepress/shared-utils')
 
-function isWhitespace(char) {
-  return char === ' ' || char === '\t' || char === '\n' 
+function isWhitespace (char) {
+  return char === ' ' || char === '\t' || char === '\n'
 }
 
 function math (state, silent) {
@@ -49,7 +49,7 @@ function math (state, silent) {
 
   // Skip if closing $ is succeeded by a digit (eg $5 $10 ...)
 
-  // Fix issue #1. 
+  // Fix issue #1.
   // Previous implementation led to NaN comparison.
   const afterEnd = state.src.charCodeAt(nextPosition) || -1
   if (afterEnd >= 0x30 && afterEnd <= 0x39) {

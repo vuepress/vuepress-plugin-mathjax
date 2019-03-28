@@ -12,7 +12,7 @@ const { AllPackages } = require('mathjax3/mathjax3/input/tex/AllPackages')
 
 const escapedCharacters = '^$()[]{}*.?+\\|'
 
-function toEscapedString(source) {
+function toEscapedString (source) {
   const chars = source.split('').map(char => {
     return escapedCharacters.includes(char) ? '\\' + char : char
   })
@@ -21,7 +21,7 @@ function toEscapedString(source) {
   return chars.join('')
 }
 
-function ensureArray(option) {
+function ensureArray (option) {
   if (!option) {
     return []
   } else if (Array.isArray(option)) {
@@ -63,15 +63,12 @@ module.exports = (options, tempPath) => {
   const OutputJax = target.toLowerCase() === 'svg'
     ? new SVG()
     : new CHTML({
-      fontURL: url.resolve(
-        path.relative(
-          tempPath,
-          require.resolve('mathjax3')
-        ),
-        '../mathjax2/css',
-      )
+      fontURL: path.resolve(
+        require.resolve('mathjax3'),
+        '../../mathjax2/css',
+      ).replace(/\\/g, '/'),
     })
-  
+
   const adaptor = liteAdaptor()
   const html = new HTMLDocument(new LiteDocument(), adaptor, {
     InputJax,
@@ -98,6 +95,6 @@ module.exports = (options, tempPath) => {
       if (cache) cache.set(source, output)
 
       return output
-    }
+    },
   }
 }

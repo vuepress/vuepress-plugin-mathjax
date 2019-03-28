@@ -10,17 +10,17 @@ module.exports = mergeable((config, context) => {
   return {
     name: 'vuepress-plugin-mathjax',
 
-    async ready() {
+    async ready () {
       await context.writeTemp('plugins-mathjax.css', style)
     },
 
-    extendMarkdown(md) {
+    extendMarkdown (md) {
       md.use(mathJaxPlugin, {
         render,
         config,
       })
     },
-    
+
     enhanceAppFiles: resolve(__dirname, 'enhanceApp.js'),
   }
 }, {
