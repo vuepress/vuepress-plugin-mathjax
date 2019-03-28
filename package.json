@@ -22,6 +22,8 @@
   },
   "homepage": "https://vuepress.github.io/plugins/mathjax/",
   "devDependencies": {
+    "@vuepress/core": "^1.0.0-alpha.44",
+    "@vuepress/shared-utils": "^1.0.0-alpha.44",
     "eslint": "^5.15.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
