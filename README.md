@@ -1,6 +1,7 @@
 # [vuepress-plugin-mathjax](https://vuepress.github.io/plugins/mathjax/)
 
 [![npm](https://img.shields.io/npm/v/vuepress-plugin-mathjax.svg)](https://www.npmjs.com/package/vuepress-plugin-mathjax)
+[![CircleCI](https://img.shields.io/circleci/project/github/vuepress/vuepress-plugin-mathjax/master.svg)](https://circleci.com/gh/vuepress/vuepress-plugin-mathjax)
 
 A [VuePress](https://vuepress.vuejs.org/) plugin which supports TeX syntax in markdown files.
 
