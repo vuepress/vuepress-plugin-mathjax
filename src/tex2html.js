@@ -1,3 +1,4 @@
+const url = require('url')
 const path = require('path')
 const LruCache = require('lru-cache')
 
@@ -62,10 +63,14 @@ module.exports = (options, tempPath) => {
   const OutputJax = target.toLowerCase() === 'svg'
     ? new SVG()
     : new CHTML({
-      fontURL: path.resolve(
-        require.resolve('mathjax3'),
-        '../../mathjax2/css',
-      ).replace(/\\/g, '/'),
+      // eslint-disable-next-line node/no-deprecated-api
+      fontURL: url.resolve(
+        path.relative(
+          tempPath,
+          require.resolve('mathjax3')
+        ),
+        '../mathjax2/css',
+      ),
     })
 
   const adaptor = liteAdaptor()
