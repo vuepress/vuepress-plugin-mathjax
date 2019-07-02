@@ -1,3 +1,5 @@
+/** @jest-environment node */
+
 const { createApp, testCases } = require('./utils')
 
 describe('mathjax-svg', () => {
