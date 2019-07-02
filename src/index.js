@@ -7,6 +7,10 @@ const mergeable = require('vuepress-mergeable')
 module.exports = mergeable((config, context) => {
   const { style, render } = tex2html(config, context.tempPath)
 
+  if (config.showError === undefined) {
+    config.showError = process.env.NODE_ENV === 'development'
+  }
+
   return {
     name: 'vuepress-plugin-mathjax',
 

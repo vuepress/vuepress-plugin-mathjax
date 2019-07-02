@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-mathjax",
-  "version": "1.2.5",
+  "version": "1.2.8",
   "main": "src/index.js",
   "description": "A VuePress plugin which supports TeX syntax in markdown files.",
   "author": "Shigma <1700011071@pku.edu.cn>",

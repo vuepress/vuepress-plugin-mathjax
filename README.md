@@ -46,7 +46,7 @@ The preset content to be added. The preset content will automatically be inserte
 ### showError
 
 - **type**: `boolean`
-- **default**: `false`
+- **default**: `process.env.NODE_ENV === 'development'`
 
 Whether to output an error message in the console when a compilation error is encountered.
 

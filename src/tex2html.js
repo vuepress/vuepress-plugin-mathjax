@@ -79,8 +79,13 @@ module.exports = (options, tempPath) => {
     OutputJax,
   })
 
+  let style = adaptor.textContent(OutputJax.styleSheet(html))
+
+  // https://github.com/mathjax/mathjax-v3/pull/256
+  style = style.replace(/\bwhite space\b/g, 'white-space')
+
   return {
-    style: adaptor.textContent(OutputJax.styleSheet(html)),
+    style,
     render (source, display, localPresets) {
       source = presets.concat(ensureArray(localPresets)).join('') + source
       source = source.replace(macroRegex, matched => macros[matched] + ' ')
