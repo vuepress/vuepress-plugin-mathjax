@@ -7,6 +7,7 @@ const { SVG } = require('mathjax-full/js/output/svg')
 const { CHTML } = require('mathjax-full/js/output/chtml')
 const { liteAdaptor } = require('mathjax-full/js/adaptors/liteAdaptor')
 const { AllPackages } = require('mathjax-full/js/input/tex/AllPackages')
+const { LiteDocument } = require('mathjax-full/js/adaptors/lite/Document')
 const { RegisterHTMLHandler } = require('mathjax-full/js/handlers/html.js')
 const { mathjax } = require('mathjax-full/js/mathjax.js')
 
@@ -67,24 +68,22 @@ module.exports = (options, tempPath) => {
       fontURL: url.resolve(
         path.relative(
           tempPath,
-          require.resolve('mathjax3')
+          require.resolve('mathjax-full')
         ),
-        '../mathjax2/css',
+        '../../../es5/output/chtml/fonts/woff-v2',
       ),
       adaptiveCSS: false
     })
 
   const adaptor = liteAdaptor()
-  const html = new HTMLDocument(new LiteDocument(), adaptor, {
-    InputJax,
-    OutputJax,
-  })
+  RegisterHTMLHandler(adaptor);
 
+  const html = mathjax.document(new LiteDocument(), {InputJax: InputJax, OutputJax: OutputJax});
   let style = adaptor.textContent(OutputJax.styleSheet(html))
 
   // https://github.com/mathjax/mathjax-v3/pull/256
   style = style.replace(/\bwhite space\b/g, 'white-space')
-
+  console.log(style)
   return {
     style,
     render (source, display, localPresets) {
