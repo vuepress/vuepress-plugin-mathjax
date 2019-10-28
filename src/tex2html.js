@@ -71,6 +71,7 @@ module.exports = (options, tempPath) => {
         ),
         '../mathjax2/css',
       ),
+      adaptiveCSS: false
     })
 
   const adaptor = liteAdaptor()
