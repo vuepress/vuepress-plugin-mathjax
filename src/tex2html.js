@@ -69,7 +69,7 @@ module.exports = (options, tempPath) => {
           tempPath,
           require.resolve('mathjax-full')
         ),
-        '../mathjax2/css',
+        '../../../es5/output/chtml/fonts/woff-v2',
       ),
     })
 
